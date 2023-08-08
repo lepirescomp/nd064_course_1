@@ -1,11 +1,21 @@
 ## Docker commands used to build the application 
-# TODO: insert the docker build command
+docker build -t techtrends .
 
 ## Docker commands used to run the application
-# TODO: insert the docker run command
+docker run -p 7111:3111 -d techtrends
 
 ## Docker commands used to get the application logs
-# TODO: insert the docker logs command
+docker logs d322e4aeb4b15ef6dfbdeb9a14b292797339a42a85f16f129f1be513621e8849 --tail 10
 
 ## Logs from the container running the TechTrends application
-# TODO: paste logs from the Docker container 
+project git:(main) ✗ docker logs d322e4aeb4b15ef6dfbdeb9a14b292797339a42a85f16f129f1be513621e8849 --tail 10
+INFO:werkzeug:08/08/2023, 16:04:43, 172.17.0.1 - - [08/Aug/2023 16:04:43] "GET /favicon.ico HTTP/1.1" 404 -
+INFO:werkzeug:08/08/2023, 16:05:20, 172.17.0.1 - - [08/Aug/2023 16:05:20] "GET /create HTTP/1.1" 200 -
+INFO:werkzeug:08/08/2023, 16:05:20, 172.17.0.1 - - [08/Aug/2023 16:05:20] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:08/08/2023, 16:05:31, Article TestTitle1 was added successfully.
+INFO:werkzeug:08/08/2023, 16:05:31, 172.17.0.1 - - [08/Aug/2023 16:05:31] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug:08/08/2023, 16:05:31, 172.17.0.1 - - [08/Aug/2023 16:05:31] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:08/08/2023, 16:05:31, 172.17.0.1 - - [08/Aug/2023 16:05:31] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:root:08/08/2023, 16:05:39, Article 1 retrieved!
+INFO:werkzeug:08/08/2023, 16:05:39, 172.17.0.1 - - [08/Aug/2023 16:05:39] "GET /7 HTTP/1.1" 200 -
+INFO:werkzeug:08/08/2023, 16:05:39, 172.17.0.1 - - [08/Aug/2023 16:05:39] "GET /static/css/main.css HTTP/1.1" 304 -
