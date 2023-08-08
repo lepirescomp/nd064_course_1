@@ -2,7 +2,6 @@
 ### Cloud Native Fundamentals Scholarship Program Nanodegree Program
 
 **Course Homepage**: https://sites.google.com/udacity.com/suse-cloud-native-foundations/home
-Test
+
 **Instructor**: https://github.com/kgamanji
-Test2
-Test3
+
