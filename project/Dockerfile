@@ -1,10 +1,10 @@
 FROM python:3.8
 
-COPY . /app
+COPY ./../../project /app
 WORKDIR /app/techtrends
 
 RUN pwd
-RUN ls -a
+RUN ls
 RUN apt-get update && apt-get install -y libpq-dev build-essential
 RUN pip install -r requirements.txt
 RUN python init_db.py
