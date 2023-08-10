@@ -7,6 +7,7 @@ docker run -p 7111:3111 -d techtrends
 ## Docker commands used to get the application logs
 docker logs d322e4aeb4b15ef6dfbdeb9a14b292797339a42a85f16f129f1be513621e8849 --tail 10
 
+Xps86lp271@#
 ## Logs from the container running the TechTrends application
 project git:(main) ✗ docker logs d322e4aeb4b15ef6dfbdeb9a14b292797339a42a85f16f129f1be513621e8849 --tail 10
 INFO:werkzeug:08/08/2023, 16:04:43, 172.17.0.1 - - [08/Aug/2023 16:04:43] "GET /favicon.ico HTTP/1.1" 404 -
