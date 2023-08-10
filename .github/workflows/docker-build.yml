@@ -38,4 +38,4 @@ jobs:
             platforms: linux/amd64
             push: true
             tags: latest
-            labels: lepirescomp/techtrends
+            labels: lepirescomp/techtrends:latest
