@@ -37,5 +37,4 @@ jobs:
             file: ./project/Dockerfile
             platforms: linux/amd64
             push: true
-            tags: latest
-            labels: lepirescomp/techtrends:latest
+            tags: lepirescomp/techtrends:latest
