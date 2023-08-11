@@ -1,0 +1,13 @@
+namespace:
+  name: staging
+  count: 3
+
+resources:
+  requestsMemory: "90Mi"
+  requestsCPU: "300m"
+  limitsMemory: "128Mi"
+  limitsCPU: "500m"
+
+
+replicaCount: 3
+port: 5111

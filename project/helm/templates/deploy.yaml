@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: techtrends
+    tag: latest
+  name: techtrends
+  namespace: {{ .Values.namespace.name }} 
+spec:
+  replicas: {{ .Values.namespace.count }} 
+  selector:
+    matchLabels:
+      app: techtrends
+      tag: latest
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: techtrends
+        tag: latest
+    spec:
+      containers:
+      - image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.imagePullPolicy }}
+        name: techtrends
+        ## Expose the port the container is listening on.
+        ## For example, exposing the application port 6112 via TCP.
+        ports:
+        - containerPort: {{ .Values.imagine.containerPort }} 
+          protocol: TCP
+        ## Define the rules for the liveness probes.
+        ## For example, verify the application on the main route `/`,
+        ## on application port 6112. If the application is not responsive, then the pod will be restarted automatically. 
+        livenessProbe:
+           httpGet:
+             path: {{ .Values.livenessProbe.path }} 
+             port: 3111
+        ## Define the rules for the readiness probes.
+        ## For example, verify the application on the main route `/`,
+        ## on application port 6112. If the application is responsive, then traffic will be sent to this pod.
+        readinessProbe:
+           httpGet:
+             path: {{ .Values.readnessProbe.path }} 
+             port: 3111
+        ## Set the resource requests and limits for an application.
+        resources:
+        ## The resource requests guarantees that the desired amount 
+        ## CPU and memory is allocated for a pod. In this example, 
+        ## the pod will be allocated with 64 Mebibytes and 250 miliCPUs.
+          requests:
+            memory: {{ .Values.resources.requestsMemory }}
+            cpu: "250m"
+        ## The resource limits ensure that the application is not consuming 
+        ## more than the specified CPU and memory values. In this example, 
+        ## the pod will not surpass 128 Mebibytes and 500 miliCPUs.
+          limits:
+            memory: {{ .Values.resources.limitsMemory }}
+            cpu: "500m"

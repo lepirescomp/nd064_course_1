@@ -1,0 +1,18 @@
+namespace:
+  name: prod
+  count: 5
+
+ 
+image:
+  imagePullPolicy: Always
+
+
+resources:
+  requestsMemory: "128Mi"
+  requestsCPU: "350m"
+  limitsMemory: "256Mi"
+  limitsCPU: "500m"
+
+
+replicaCount: 5
+port: 7111

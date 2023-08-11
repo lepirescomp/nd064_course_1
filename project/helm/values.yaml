@@ -1,0 +1,31 @@
+namespace:
+  name: sandbox
+  count: 1
+
+ 
+image:
+  repository: lepirescomp/techtrends 
+  tag: latest
+  imagePullPolicy: IfNotPresent
+
+
+livenessProbe:
+  path: /healthz
+
+
+readnessProbe:
+  path: /healthz
+
+
+resources:
+  requestsMemory: "64Mi"
+  requestsCPU: "250m"
+  limitsMemory: "128Mi"
+  limitsCPU: "500m"
+
+
+replicaCount: 1
+port: 4111
+protocol: TCP
+targetPort: 3111
+clusterIP: ClusterIP

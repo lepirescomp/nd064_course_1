@@ -1,0 +1,9 @@
+apiVersion: v1
+name: techtrends 
+description: Install a Techtrends deployment
+keywords:
+- techtrends
+version: 1.0.0
+maintainers:
+- name: lepirescomp 
+  email: lepirescomp@gmail.com
