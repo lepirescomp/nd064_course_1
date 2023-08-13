@@ -31,21 +31,21 @@ spec:
         ## For example, exposing the application port 6112 via TCP.
         ports:
         - containerPort: {{ .Values.port }} 
-          protocol: TCP
+          protocol: {{ .Values.protocol }} 
         ## Define the rules for the liveness probes.
         ## For example, verify the application on the main route `/`,
         ## on application port 6112. If the application is not responsive, then the pod will be restarted automatically. 
         livenessProbe:
            httpGet:
              path: {{ .Values.livenessProbe.path }} 
-             port: 3111
+             port: {{ .Values.livenessProbe.port }} 
         ## Define the rules for the readiness probes.
         ## For example, verify the application on the main route `/`,
         ## on application port 6112. If the application is responsive, then traffic will be sent to this pod.
         readinessProbe:
            httpGet:
              path: {{ .Values.readnessProbe.path }} 
-             port: 3111
+             port: {{ .Values.readnessProbe.port }} 
         ## Set the resource requests and limits for an application.
         resources:
         ## The resource requests guarantees that the desired amount 
@@ -53,10 +53,10 @@ spec:
         ## the pod will be allocated with 64 Mebibytes and 250 miliCPUs.
           requests:
             memory: {{ .Values.resources.requestsMemory }}
-            cpu: "250m"
+            cpu: {{ .Values.resources.requestsCPU }}
         ## The resource limits ensure that the application is not consuming 
         ## more than the specified CPU and memory values. In this example, 
         ## the pod will not surpass 128 Mebibytes and 500 miliCPUs.
           limits:
             memory: {{ .Values.resources.limitsMemory }}
-            cpu: "500m"
+            cpu:  {{ .Values.resources.limitsCPU }}

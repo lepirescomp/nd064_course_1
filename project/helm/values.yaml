@@ -11,10 +11,11 @@ image:
 
 livenessProbe:
   path: /healthz
-
+  port: 3111
 
 readnessProbe:
   path: /healthz
+  port: 3111
 
 
 resources:

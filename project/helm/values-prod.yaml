@@ -13,6 +13,13 @@ resources:
   limitsMemory: "256Mi"
   limitsCPU: "500m"
 
+livenessProbe:
+  port: 3111
+
+readnessProbe:
+  port: 3111
+
 
 replicaCount: 5
 port: 7111
+protocol: TCP
