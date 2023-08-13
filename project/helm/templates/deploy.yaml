@@ -30,7 +30,7 @@ spec:
         ## Expose the port the container is listening on.
         ## For example, exposing the application port 6112 via TCP.
         ports:
-        - containerPort: {{ .Values.imagine.containerPort }} 
+        - containerPort: {{ .Values.port }} 
           protocol: TCP
         ## Define the rules for the liveness probes.
         ## For example, verify the application on the main route `/`,
