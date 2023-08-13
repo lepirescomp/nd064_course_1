@@ -6,22 +6,30 @@ import sys
 from flask import Flask, jsonify, json, render_template, request, url_for, redirect, flash
 from werkzeug.exceptions import abort
 
+conn_count = 0
+
 log = logging.getLogger()
+
+handler_stdout = logging.StreamHandler(sys.stdout)
+handler_stdout = logging.StreamHandler(sys.stderr)
+handlers = [handler_stdout, handler_stdout]
+
+datefmt="%d/%m/%Y, %H:%M:%S"
+level=logging.DEBUG
+format = '%(levelname)s:%(name)s:%(asctime)s, %(message)s'
+
+logging.basicConfig(datefmt=datefmt, handlers=handlers, level=level, format=format)
 log.setLevel(logging.DEBUG)
-
-handler = logging.StreamHandler(sys.stdout)
-handler.setLevel(logging.DEBUG)
-
-formatter = logging.Formatter('%(levelname)s:%(name)s:%(asctime)s, %(message)s', datefmt="%d/%m/%Y, %H:%M:%S")
-handler.setFormatter(formatter)
-log.addHandler(handler)
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
 def get_db_connection():
+    global conn_count
+
     connection = sqlite3.connect('database.db')
     connection.row_factory = sqlite3.Row
-    sqlite3
+    conn_count += 1
+
     return connection
 
 # Function to get a post using its ID
@@ -36,6 +44,8 @@ def get_post(post_id):
 # Define the Flask application
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
+app.logger.setLevel(logging.DEBUG)
+
 
 def get_posts():
     connection = get_db_connection()
@@ -111,7 +121,7 @@ def healthz():
 def metrics():
     posts = get_posts()
     response = app.response_class(
-            response=json.dumps({"status":"success","code":0,"data":{"db_connection_count": 1, "post_count": len(posts)}}),
+            response=json.dumps({"status":"success","code":0,"data":{"db_connection_count": conn_count, "post_count": len(posts)}}),
             status=200,
             mimetype='application/json'
     )

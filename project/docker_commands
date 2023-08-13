@@ -7,16 +7,21 @@ docker run -p 7111:3111 -d techtrends
 ## Docker commands used to get the application logs
 docker logs d322e4aeb4b15ef6dfbdeb9a14b292797339a42a85f16f129f1be513621e8849 --tail 10
 
-Xps86lp271@#
 ## Logs from the container running the TechTrends application
-project git:(main) ✗ docker logs d322e4aeb4b15ef6dfbdeb9a14b292797339a42a85f16f129f1be513621e8849 --tail 10
-INFO:werkzeug:08/08/2023, 16:04:43, 172.17.0.1 - - [08/Aug/2023 16:04:43] "GET /favicon.ico HTTP/1.1" 404 -
-INFO:werkzeug:08/08/2023, 16:05:20, 172.17.0.1 - - [08/Aug/2023 16:05:20] "GET /create HTTP/1.1" 200 -
-INFO:werkzeug:08/08/2023, 16:05:20, 172.17.0.1 - - [08/Aug/2023 16:05:20] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:app:08/08/2023, 16:05:31, Article TestTitle1 was added successfully.
-INFO:werkzeug:08/08/2023, 16:05:31, 172.17.0.1 - - [08/Aug/2023 16:05:31] "POST /create HTTP/1.1" 302 -
-INFO:werkzeug:08/08/2023, 16:05:31, 172.17.0.1 - - [08/Aug/2023 16:05:31] "GET / HTTP/1.1" 200 -
-INFO:werkzeug:08/08/2023, 16:05:31, 172.17.0.1 - - [08/Aug/2023 16:05:31] "GET /static/css/main.css HTTP/1.1" 304 -
-INFO:root:08/08/2023, 16:05:39, Article 1 retrieved!
-INFO:werkzeug:08/08/2023, 16:05:39, 172.17.0.1 - - [08/Aug/2023 16:05:39] "GET /7 HTTP/1.1" 200 -
-INFO:werkzeug:08/08/2023, 16:05:39, 172.17.0.1 - - [08/Aug/2023 16:05:39] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:13/08/2023, 15:05:06,  * Running on http://172.17.0.2:3111/ (Press CTRL+C to quit)
+INFO:root:13/08/2023, 15:05:14, Article 2020 CNCF Annual Report retrieved!
+INFO:werkzeug:13/08/2023, 15:05:14, 172.17.0.1 - - [13/Aug/2023 15:05:14] "GET /1 HTTP/1.1" 200 -
+INFO:werkzeug:13/08/2023, 15:05:14, 172.17.0.1 - - [13/Aug/2023 15:05:14] "GET /static/css/main.css HTTP/1.1" 304 -
+WARNING:root:13/08/2023, 15:05:18, Article not found!
+INFO:werkzeug:13/08/2023, 15:05:18, 172.17.0.1 - - [13/Aug/2023 15:05:18] "GET /20 HTTP/1.1" 404 -
+INFO:werkzeug:13/08/2023, 15:05:18, 172.17.0.1 - - [13/Aug/2023 15:05:18] "GET /static/css/main.css HTTP/1.1" 304 -
+DEBUG:root:13/08/2023, 15:05:22, About me was called.
+INFO:werkzeug:13/08/2023, 15:05:22, 172.17.0.1 - - [13/Aug/2023 15:05:22] "GET /about HTTP/1.1" 200 -
+INFO:werkzeug:13/08/2023, 15:05:22, 172.17.0.1 - - [13/Aug/2023 15:05:22] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:werkzeug:13/08/2023, 15:05:33, 172.17.0.1 - - [13/Aug/2023 15:05:33] "GET /create HTTP/1.1" 200 -
+INFO:werkzeug:13/08/2023, 15:05:33, 172.17.0.1 - - [13/Aug/2023 15:05:33] "GET /static/css/main.css HTTP/1.1" 304 -
+INFO:app:13/08/2023, 15:05:43, Article Title1 was added successfully.
+INFO:werkzeug:13/08/2023, 15:05:43, 172.17.0.1 - - [13/Aug/2023 15:05:43] "POST /create HTTP/1.1" 302 -
+INFO:werkzeug:13/08/2023, 15:05:43, 172.17.0.1 - - [13/Aug/2023 15:05:43] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:13/08/2023, 15:05:43, 172.17.0.1 - - [13/Aug/2023 15:05:43] "GET /static/css/main.css HTTP/1.1" 304 -
+
